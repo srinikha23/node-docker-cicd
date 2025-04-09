@@ -20,16 +20,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-
       - name: Set up Docker CLI (force classic builder)
         run: |
           docker builder prune --force
 
       - name: Set up Docker (classic builder)
-          run: |
-           docker build --version
-           docker builder prune --force  
-
+        run: |
+          docker build --version
+          docker builder prune --force  
 
       - name: Log in to Docker Hub
         env:
@@ -42,9 +40,3 @@ jobs:
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/node-cicd-app
-
-
-
-
-                                                                        
- 
