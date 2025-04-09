@@ -26,7 +26,6 @@ jobs:
 
       - name: Set up Docker (classic builder)
         run: |
-          docker build --version
           docker builder prune --force  
 
       - name: Log in to Docker Hub
