@@ -20,10 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set up Docker
+      - name: Set Docker to classic builder
         run: |
-          docker --version
-          docker info
+          docker buildx stop
+          docker buildx rm default || true
 
       - name: Log in to Docker Hub
         env:
